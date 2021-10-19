@@ -1,9 +1,11 @@
-import commerce from '@lib/api/commerce'
-import { Layout } from '@components/common'
-import { ProductCard } from '@components/product'
-import { Grid, Marquee, Hero } from '@components/ui'
 // import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { Grid, Hero, Marquee } from '@components/ui'
+
+import { CollectionPageJsonLd } from 'next-seo'
+import { Layout } from '@components/common'
+import { ProductCard } from '@components/product'
+import commerce from '@lib/api/commerce'
 
 export async function getStaticProps({
   preview,
@@ -18,6 +20,9 @@ export async function getStaticProps({
     // Saleor provider only
     ...({ featured: true } as any),
   })
+
+  console.log(config, preview)
+
   const pagesPromise = commerce.getAllPages({ config, preview })
   const siteInfoPromise = commerce.getSiteInfo({ config, preview })
   const { products } = await productsPromise
@@ -37,7 +42,10 @@ export async function getStaticProps({
 
 export default function Home({
   products,
+  pages,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log(pages)
+
   return (
     <>
       <Grid variant="filled">

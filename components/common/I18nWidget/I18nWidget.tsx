@@ -1,10 +1,12 @@
-import cn from 'classnames'
-import Link from 'next/link'
+import { ChevronUp, Cross } from '@components/icons'
 import { FC, useState } from 'react'
-import { useRouter } from 'next/router'
-import s from './I18nWidget.module.css'
-import { Cross, ChevronUp } from '@components/icons'
+
 import ClickOutside from '@lib/click-outside'
+import Link from 'next/link'
+import cn from 'classnames'
+import s from './I18nWidget.module.css'
+import { useRouter } from 'next/router'
+
 interface LOCALE_DATA {
   name: string
   img: {
@@ -14,11 +16,11 @@ interface LOCALE_DATA {
 }
 
 const LOCALES_MAP: Record<string, LOCALE_DATA> = {
-  es: {
-    name: 'Español',
+  it: {
+    name: 'Italiano',
     img: {
-      filename: 'flag-es-co.svg',
-      alt: 'Bandera Colombiana',
+      filename: 'flag-es.svg',
+      alt: 'Bandiera Italiana',
     },
   },
   'en-US': {
@@ -35,7 +37,7 @@ const I18nWidget: FC = () => {
   const {
     locale,
     locales,
-    defaultLocale = 'en-US',
+    defaultLocale = 'it',
     asPath: currentPath,
   } = useRouter()
 
@@ -77,18 +79,21 @@ const I18nWidget: FC = () => {
                 </button>
               </div>
               <ul>
-                {options.map((locale) => (
-                  <li key={locale}>
-                    <Link href={currentPath} locale={locale}>
-                      <a
-                        className={cn(s.item)}
-                        onClick={() => setDisplay(false)}
-                      >
-                        {LOCALES_MAP[locale].name}
-                      </a>
-                    </Link>
-                  </li>
-                ))}
+                {options.map((locale) => {
+                  console.log(locale)
+                  return (
+                    <li key={locale}>
+                      <Link href={currentPath} locale={locale}>
+                        <a
+                          className={cn(s.item)}
+                          onClick={() => setDisplay(false)}
+                        >
+                          {LOCALES_MAP[locale]?.name}
+                        </a>
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ) : null}

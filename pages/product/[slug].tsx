@@ -3,10 +3,11 @@ import type {
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from 'next'
-import { useRouter } from 'next/router'
-import commerce from '@lib/api/commerce'
+
 import { Layout } from '@components/common'
 import { ProductView } from '@components/product'
+import commerce from '@lib/api/commerce'
+import { useRouter } from 'next/router'
 
 export async function getStaticProps({
   params,
