@@ -5,6 +5,7 @@ import * as Customer from './customer'
 import * as Login from './login'
 import * as Logout from './logout'
 import * as Page from './page'
+import * as Post from './post'
 import * as Product from './product'
 import * as Signup from './signup'
 import * as Site from './site'
@@ -18,6 +19,7 @@ export type {
   Login,
   Logout,
   Page,
+  Post,
   Product,
   Signup,
   Site,

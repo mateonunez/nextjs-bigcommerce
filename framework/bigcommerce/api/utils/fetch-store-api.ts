@@ -1,6 +1,7 @@
-import type { RequestInit, Response } from '@vercel/fetch'
-import type { BigcommerceConfig } from '../index'
 import { BigcommerceApiError, BigcommerceNetworkError } from './errors'
+import type { RequestInit, Response } from '@vercel/fetch'
+
+import type { BigcommerceConfig } from '../index'
 import fetch from './fetch'
 
 const fetchStoreApi =
@@ -19,6 +20,8 @@ const fetchStoreApi =
           'X-Auth-Client': config.storeApiClientId,
         },
       })
+
+      console.log(res)
     } catch (error) {
       throw new BigcommerceNetworkError(
         `Fetch to Bigcommerce failed: ${error.message}`

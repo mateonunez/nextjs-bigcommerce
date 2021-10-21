@@ -1,6 +1,7 @@
-import { SWRHook } from '@commerce/utils/types'
 import useCustomer, { UseCustomer } from '@commerce/customer/use-customer'
+
 import type { CustomerHook } from '../types/customer'
+import { SWRHook } from '@commerce/utils/types'
 
 export default useCustomer as UseCustomer<typeof handler>
 
@@ -13,12 +14,14 @@ export const handler: SWRHook<CustomerHook> = {
     const data = await fetch(options)
     return data?.customer ?? null
   },
-  useHook: ({ useData }) => (input) => {
-    return useData({
-      swrOptions: {
-        revalidateOnFocus: false,
-        ...input?.swrOptions,
-      },
-    })
-  },
+  useHook:
+    ({ useData }) =>
+    (input) => {
+      return useData({
+        swrOptions: {
+          revalidateOnFocus: false,
+          ...input?.swrOptions,
+        },
+      })
+    },
 }

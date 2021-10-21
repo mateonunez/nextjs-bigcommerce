@@ -1,28 +1,28 @@
-import type { RequestInit } from '@vercel/fetch'
 import {
   CommerceAPI,
   CommerceAPIConfig,
   getCommerceApi as commerceApi,
 } from '@commerce/api'
-import createFetchGraphqlApi from './utils/fetch-graphql-api'
-import createFetchStoreApi from './utils/fetch-store-api'
 
 import type { CartAPI } from './endpoints/cart'
 import type { CustomerAPI } from './endpoints/customer'
 import type { LoginAPI } from './endpoints/login'
 import type { LogoutAPI } from './endpoints/logout'
-import type { SignupAPI } from './endpoints/signup'
 import type { ProductsAPI } from './endpoints/catalog/products'
+import type { RequestInit } from '@vercel/fetch'
+import type { SignupAPI } from './endpoints/signup'
 import type { WishlistAPI } from './endpoints/wishlist'
-
-import login from './operations/login'
+import createFetchGraphqlApi from './utils/fetch-graphql-api'
+import createFetchStoreApi from './utils/fetch-store-api'
 import getAllPages from './operations/get-all-pages'
-import getPage from './operations/get-page'
-import getSiteInfo from './operations/get-site-info'
-import getCustomerWishlist from './operations/get-customer-wishlist'
+import getAllPosts from './operations/get-all-posts'
 import getAllProductPaths from './operations/get-all-product-paths'
 import getAllProducts from './operations/get-all-products'
+import getCustomerWishlist from './operations/get-customer-wishlist'
+import getPage from './operations/get-page'
 import getProduct from './operations/get-product'
+import getSiteInfo from './operations/get-site-info'
+import login from './operations/login'
 
 export interface BigcommerceConfig extends CommerceAPIConfig {
   // Indicates if the returned metadata with translations should be applied to the
@@ -93,6 +93,7 @@ const operations = {
   getPage,
   getSiteInfo,
   getCustomerWishlist,
+  getAllPosts,
   getAllProductPaths,
   getAllProducts,
   getProduct,

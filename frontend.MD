@@ -1,0 +1,58 @@
+# Frontend
+
+- UI/UX - [(10gg - 20gg) ~ 5 gg]
+- Starter - 5 giorni
+- Home page - 6 giorni
+- Ricerca Prodotti - 5 giorni
+- Visualizzazione prodotti per Categoria - 3 giorni
+-  - Da tenere in considerazione:
+-    - Offerte
+-    - Sconti/Promozioni
+-    - Highlights
+- Filtro prodotti per Categoria - 4 giorni
+- Scheda Prodotto:
+-   - Visualizzazione - 3 giorni
+-   - Recensioni - [2 giorni ~ 4 giorni]
+-   - Galleria - [2/3 giorni]
+- Prodotti Correlati - 3.5 giorni
+- Pagine Istituzionali [n] - 7 giorni se 7 pagine
+- Multilingua - 2 giorni
+- DHL integration - 10 giorni
+-  - Da valutare eventualmente un'App presente su Bigcommerce
+- Wishlist - 2 giorni
+- Condividi - 2 giorni
+-   - Whatsapp
+-   - Email
+-   - Facebook
+- Loyalty - 8 giorni
+-   - https://www.bigcommerce.com/apps/s-loyalty/
+-   - https://www.bigcommerce.com/apps/smile-io/
+- Account - 9 giorni
+-   - Login/Registrazione:
+-     - https://firebase.google.com/pricing
+-     - Login via SMS di verifica [Firebase]
+-   - Lost Password [Firebase]
+-   - Storico
+-   - Luoghi di spedizioni (domicilio)
+- Metodi di pagamento - 2 giorni
+-   - Paypal
+-   - Stripe
+- Carrello - 10 giorni
+-   - Gestione
+-   - Destinazione
+-   - Pagamento
+-   - *DHL*
+-   - Checkout finale
+-   - *Loyalty*
+- Chat Live - 2 giorni
+-   - https://www.bigcommerce.com/apps/livechatinc/?search=chat&page=2
+-   - https://www.bigcommerce.com/apps/facebook-chat-by-elfsight/?search=chat&page=2
+-
+- Deployment (Produzione, Staging) - 1 gg
+- Testing - 10
+- Refactors - 10
+
+# Backend
+
+- Fidelity Card - 15/20 giorni
+- Integrazione col Gestionale - 12 giorni

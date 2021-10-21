@@ -1,14 +1,16 @@
-import type { ServerResponse } from 'http'
-import type { LoginOperation } from '../types/login'
+import type { APIProvider, CommerceAPI } from '.'
 import type { GetAllPagesOperation, GetPageOperation } from '../types/page'
-import type { GetSiteInfoOperation } from '../types/site'
-import type { GetCustomerWishlistOperation } from '../types/wishlist'
 import type {
   GetAllProductPathsOperation,
   GetAllProductsOperation,
   GetProductOperation,
 } from '../types/product'
-import type { APIProvider, CommerceAPI } from '.'
+
+import type { GetAllPostsOperation } from '../types/post'
+import type { GetCustomerWishlistOperation } from '../types/wishlist'
+import type { GetSiteInfoOperation } from '../types/site'
+import type { LoginOperation } from '../types/login'
+import type { ServerResponse } from 'http'
 
 const noop = () => {
   throw new Error('Not implemented')
@@ -17,6 +19,7 @@ const noop = () => {
 export const OPERATIONS = [
   'login',
   'getAllPages',
+  'getAllPosts',
   'getPage',
   'getSiteInfo',
   'getCustomerWishlist',
@@ -149,6 +152,20 @@ export type Operations<P extends APIProvider> = {
     <T extends GetProductOperation>(
       opts: {
         variables: T['variables']
+        config?: P['config']
+        preview?: boolean
+      } & OperationOptions
+    ): Promise<T['data']>
+  }
+
+  getAllPosts: {
+    <T extends GetAllPostsOperation>(opts?: {
+      config?: P['config']
+      preview?: boolean
+    }): Promise<T['data']>
+
+    <T extends GetAllPostsOperation>(
+      opts: {
         config?: P['config']
         preview?: boolean
       } & OperationOptions

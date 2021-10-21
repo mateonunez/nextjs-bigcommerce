@@ -80,7 +80,6 @@ const I18nWidget: FC = () => {
               </div>
               <ul>
                 {options.map((locale) => {
-                  console.log(locale)
                   return (
                     <li key={locale}>
                       <Link href={currentPath} locale={locale}>

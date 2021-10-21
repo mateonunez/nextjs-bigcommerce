@@ -21,8 +21,6 @@ export async function getStaticProps({
     ...({ featured: true } as any),
   })
 
-  console.log(config, preview)
-
   const pagesPromise = commerce.getAllPages({ config, preview })
   const siteInfoPromise = commerce.getSiteInfo({ config, preview })
   const { products } = await productsPromise
@@ -44,8 +42,6 @@ export default function Home({
   products,
   pages,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(pages)
-
   return (
     <>
       <Grid variant="filled">
